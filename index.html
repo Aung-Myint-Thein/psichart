@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<title>Singapore PSI level chart</title>
+	<link rel="icon" href="favicon.ico" type="image/gif"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      
+	  /* Sticky footer styles
+      -------------------------------------------------- */
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+	  /* end of Sticky footer styles
+      -------------------------------------------------- */
+	  
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['time', 'PSI reading'],
+          ['3PM',  172],
+		  ['4PM',  158],
+		  ['5PM',  146],
+		  ['6PM',  144],
+		  ['7PM',  161],
+		  ['8PM',  190],
+		  ['9PM',  290],
+		  ['10PM',  0]
+        ]);
+
+        var options = {
+          title: 'PSI Reading published by NEA - 19 June 2013',
+          hAxis: {title: 'time', titleTextStyle: {color: 'red'}},
+		  legend: {position: 'bottom', alignment: 'start'}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+	<div id="wrap">
+    <div class="container-narrow">
+      <div class="masthead">
+        <h3 class="muted">For public use</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Singapore PSI chart</h1>
+        <p class="lead">The data and information from this page is sorely for public information. Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a></p>        		
+	  </div>
+	  
+      <hr>
+	  <div class="row-fluid marketing">
+	  <div id="chart_div" style="width: 900px; height: 400px;"></div>
+	  </div>
+    </div>
+	
+    </div> <!-- /container -->
+	</div>
+	
+	<div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; <a href="http://www.linkedin.com/profile/view?id=69565965&trk=tab_pro">Aung Myint Thein</a></p>
+      </div>
+    </div>
+	
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
