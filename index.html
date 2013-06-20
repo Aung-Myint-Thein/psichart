@@ -105,28 +105,6 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['time', 'PSI reading'],
-          ['3PM 19\'',  172],
-		  ['4PM 19\'',  158],
-		  ['5PM 19\'',  146],
-		  ['6PM 19\'',  144],
-		  ['7PM 19\'',  161],
-		  ['8PM 19\'',  190],
-		  ['9PM 19\'',  290],
-		  ['10PM 19\'', 321],
-		  ['11PM 19\'', 282],
-		  ['12AM 20\'', 218],
-		  ['1AM 20\'', 195],
-		  ['2AM 20\'', 0],
-		  ['3AM 20\'', 0],
-		  ['4AM 20\'', 0],
-		  ['5AM 20\'', 0],
-		  ['6AM 20\'', 137],
-		  ['7AM 20\'', 128],
-		  ['8AM 20\'', 122]
-        ]);
-		
 		var data2 = new google.visualization.DataTable();
 		data2.addColumn('string', 'time'); 
 		data2.addColumn('number', 'PSI reading');
