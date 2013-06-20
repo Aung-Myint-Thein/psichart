@@ -144,7 +144,8 @@
 		  chartArea: {left:35},
           hAxis: {title: '', titleTextStyle: {color: 'red'}, textStyle:{fontSize:9}},
 		  vAxis: {minvalue: 0, maxValue:400, gridlines: {count: 9}, textStyle:{fontSize:11}},
-		  legend: {position: 'none', alignment: 'start'}
+		  legend: {position: 'none', alignment: 'start'},
+		  trendlines: { 200: {} } 
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
