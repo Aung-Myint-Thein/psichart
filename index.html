@@ -107,27 +107,61 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['time', 'PSI reading'],
-          ['3PM',  172],
-		  ['4PM',  158],
-		  ['5PM',  146],
-		  ['6PM',  144],
-		  ['7PM',  161],
-		  ['8PM',  190],
-		  ['9PM',  290],
-		  ['10PM', 321],
-		  ['11PM', 282],
-		  ['12PM', 218]
+          ['3PM 19\'',  172],
+		  ['4PM 19\'',  158],
+		  ['5PM 19\'',  146],
+		  ['6PM 19\'',  144],
+		  ['7PM 19\'',  161],
+		  ['8PM 19\'',  190],
+		  ['9PM 19\'',  290],
+		  ['10PM 19\'', 321],
+		  ['11PM 19\'', 282],
+		  ['12AM 20\'', 218],
+		  ['1AM 20\'', 195],
+		  ['2AM 20\'', 0],
+		  ['3AM 20\'', 0],
+		  ['4AM 20\'', 0],
+		  ['5AM 20\'', 0],
+		  ['6AM 20\'', 137],
+		  ['7AM 20\'', 128],
+		  ['8AM 20\'', 122]
         ]);
+		
+		var data2 = new google.visualization.DataTable();
+		data2.addColumn('string', 'time'); 
+		data2.addColumn('number', 'PSI reading');
+		data2.addColumn({type:'string', role:'tooltip'});	
+		data2.addRows([
+		  ['3PM',  172, '19 June 3PM PSI reading 172'],
+		  ['4PM',  158, '19 June 4PM PSI reading 158'],
+		  ['5PM',  146,'19 June 5PM PSI reading 146'],
+		  ['6PM',  144,'19 June 6PM PSI reading 144'],
+		  ['7PM',  161,'19 June 7PM PSI reading 161'],
+		  ['8PM',  190,'19 June 8PM PSI reading 190'],
+		  ['9PM',  290,'19 June 9PM PSI reading 290'],
+		  ['10PM', 321,'19 June 10PM PSI reading 321'],
+		  ['11PM', 282,'19 June 11PM PSI reading 282'],
+		  ['12AM', 218,'20 June 12AM PSI reading 218'],
+		  ['1AM', 195,'20 June 1AM PSI reading 195'],
+		  ['2AM', 0,'20 June 2AM PSI reading not available'],
+		  ['3AM', 0,'20 June 3AM PSI reading not available'],
+		  ['4AM', 0,'20 June 4AM PSI reading not available'],
+		  ['5AM', 0,'20 June 5AM PSI reading not available'],
+		  ['6AM', 137,'20 June 6AM PSI reading 137'],
+		  ['7AM', 128,'20 June 7AM PSI reading 128'],
+		  ['8AM', 122,'20 June 8AM PSI reading 122']
+		]);
 
         var options = {
-          title: 'PSI Reading published by NEA - 19 June 2013',
+          title: 'PSI Reading published by NEA 19 - 20 June 2013',
+		  chartArea: {left:35},
           hAxis: {title: 'time', titleTextStyle: {color: 'red'}},
 		  vAxis: {minvalue: 0, maxValue:350, gridlines: {count: 7}},
 		  legend: {position: 'bottom', alignment: 'start'}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        chart.draw(data2, options);
       }
     </script>
   </head>
@@ -143,17 +177,20 @@
 }(document, 'script', 'facebook-jssdk'));</script>
   
 	<div id="wrap">
-    <div class="container-narrow">
+    <div class="container">
 	
       <div class="jumbotron">
         <h1>Singapore PSI chart</h1>
-        <p class="lead">The data and information from this page is sorely for public information. Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a></p>        		
+        <p class="lead">The data and information from this page is sorely for public information. <br>Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a>
+		<p class="muted credit">developed by <a href="https://www.facebook.com/aung.m.thein">Aung Myint Thein</a></p>
+		</p>        		
 	  </div>
 	  
       <hr>
-	  <div class="row-fluid marketing">
-	  <div id="chart_div" style="width: 900px; height: 450px;"></div>
-	  
+	  <div class="row-fluid">
+	  <div class="span12">
+	  <div id="chart_div" style="width: 1200px; height: 450px;"></div>
+	  </div>
 	  <hr>
 	  
 	  <a href="https://twitter.com/share" class="twitter-share-button" data-via="Taungoo_Thar" data-size="large">Tweet</a>
@@ -169,12 +206,6 @@
 		
     </div> <!-- /container -->
 	</div>
-	
-	<div id="footer">
-      <div class="container">
-        <p class="muted credit">developed by <a href="https://www.facebook.com/aung.m.thein">Aung Myint Thein</a></p>
-      </div>
-    </div>
 	
     <!-- Le javascript
     ================================================== -->
