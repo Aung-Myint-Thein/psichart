@@ -109,16 +109,8 @@
 		data2.addColumn('string', 'time'); 
 		data2.addColumn('number', 'PSI reading');
 		data2.addColumn({type:'string', role:'tooltip'});	
+
 		data2.addRows([
-		  ['3PM 19\'',  172, '19 June 3PM PSI reading 172'],
-		  ['4PM',  158, '19 June 4PM PSI reading 158'],
-		  ['5PM',  146,'19 June 5PM PSI reading 146'],
-		  ['6PM',  144,'19 June 6PM PSI reading 144'],
-		  ['7PM',  161,'19 June 7PM PSI reading 161'],
-		  ['8PM',  190,'19 June 8PM PSI reading 190'],
-		  ['9PM',  290,'19 June 9PM PSI reading 290'],
-		  ['10PM', 321,'19 June 10PM PSI reading 321'],
-		  ['11PM', 282,'19 June 11PM PSI reading 282'],
 		  ['12AM 20\'', 218,'20 June 12AM PSI reading 218'],
 		  ['1AM', 195,'20 June 1AM PSI reading 195'],
 		  ['2AM', 0,'20 June 2AM PSI reading not available'],
@@ -139,11 +131,12 @@
 		  ['5PM', 268,'20 June 5PM PSI reading 268'],
 		  ['6PM', 310,'20 June 6PM PSI reading 310'],
 		  ['7PM', 292,'20 June 7PM PSI reading 292'],
-		  ['8PM', 231,'20 June 8PM PSI reading 231']
+		  ['8PM', 231,'20 June 8PM PSI reading 231'],
+		  ['9PM', 197,'20 June 9PM PSI reading 197']
 		]);
 		
         var options = {
-          title: 'PSI Reading published by NEA 19 - 20 June 2013',
+          title: 'PSI Reading published by NEA for 20 June 2013',
 		  chartArea: {left:35},
           hAxis: {title: '', titleTextStyle: {color: 'red'}, textStyle:{fontSize:9}},
 		  vAxis: {minvalue: 0, maxValue:400, gridlines: {count: 9}, textStyle:{fontSize:11}},
