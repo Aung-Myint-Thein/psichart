@@ -110,7 +110,7 @@
 		data2.addColumn('number', 'PSI reading');
 		data2.addColumn({type:'string', role:'tooltip'});	
 		data2.addRows([
-		  ['3PM',  172, '19 June 3PM PSI reading 172'],
+		  ['3PM 19\'',  172, '19 June 3PM PSI reading 172'],
 		  ['4PM',  158, '19 June 4PM PSI reading 158'],
 		  ['5PM',  146,'19 June 5PM PSI reading 146'],
 		  ['6PM',  144,'19 June 6PM PSI reading 144'],
@@ -119,7 +119,7 @@
 		  ['9PM',  290,'19 June 9PM PSI reading 290'],
 		  ['10PM', 321,'19 June 10PM PSI reading 321'],
 		  ['11PM', 282,'19 June 11PM PSI reading 282'],
-		  ['12AM', 218,'20 June 12AM PSI reading 218'],
+		  ['12AM 20\'', 218,'20 June 12AM PSI reading 218'],
 		  ['1AM', 195,'20 June 1AM PSI reading 195'],
 		  ['2AM', 0,'20 June 2AM PSI reading not available'],
 		  ['3AM', 0,'20 June 3AM PSI reading not available'],
@@ -133,9 +133,9 @@
         var options = {
           title: 'PSI Reading published by NEA 19 - 20 June 2013',
 		  chartArea: {left:35},
-          hAxis: {title: 'time', titleTextStyle: {color: 'red'}},
+          hAxis: {title: 'time', titleTextStyle: {color: 'red'}, textStyle:{fontSize:12}},
 		  vAxis: {minvalue: 0, maxValue:350, gridlines: {count: 7}},
-		  legend: {position: 'bottom', alignment: 'start'}
+		  legend: {position: 'none', alignment: 'start'}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
