@@ -1,7 +1,5 @@
-psichart
+PSI Chart
 ========
-
-PSI chart
 
 This is just a very quick implementation of the google bar chart using the 3 hr average of PSI reading data from National Environment Agency.
 
