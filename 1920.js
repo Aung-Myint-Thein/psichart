@@ -44,4 +44,11 @@ data2.addRows([
 		  ['6AM', 0,'21 June 6AM PSI reading not available yet'],
 		  ['7AM', 0,'21 June 7AM PSI reading not available yet'],
 		  ['8AM', 0,'21 June 8AM PSI reading not available yet'],
+		  
+		  		  ['6PM 20\'', 310,'20 June 6PM PSI reading 310'],
+		  ['7PM', 292,'20 June 7PM PSI reading 292'],
+		  ['8PM', 231,'20 June 8PM PSI reading 231'],
+		  ['9PM', 197,'20 June 9PM PSI reading 197'],
+		  ['10PM', 231,'20 June 10PM PSI reading 231'],
+		  ['11PM', 250,'20 June 11PM PSI reading 250'],
 		]);
