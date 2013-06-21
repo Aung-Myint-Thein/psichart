@@ -32,7 +32,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var formatPercent = d3.format(".0%");
+var formatPercent = d3.format(".0");
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -55,14 +55,14 @@ var svg = d3.select("#chart_div").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("data.tsv", function(error, data) {
+d3.csv("data.csv", function(error, data) {
 
   data.forEach(function(d) {
-    d.frequency = +d.frequency;
+    d.PSI = +d.PSI;
   });
 
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+  x.domain(data.map(function(d) { return d.time; }));
+  y.domain([0, d3.max(data, function(d) { return d.PSI; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -77,17 +77,23 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("PSI 3 hr average reading");
 
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+  var sel = svg.selectAll(".bar")
+    .data(data).enter();
 
+sel.append("rect")
+   .attr("class", "bar")
+   .attr("x", function(d) { return x(d.time); })
+   .attr("width", x.rangeBand())
+   .attr("y", function(d) { return y(d.PSI); })
+   .attr("height", function(d) { return height - y(d.PSI); });
+
+sel.append("text")
+   .attr("x", function(d) { return x(d.time); })
+   .attr("y", function(d) { return y(d.PSI); })
+   .attr("font-size", "14px")
+   .text(function(d) { return d.PSI});
 });
 
 </script>
