@@ -111,10 +111,7 @@
 		data2.addColumn({type:'string', role:'tooltip'});	
 		
 		data2.addRows([
-		  ['7AM 20\'', 128,'20 June 7AM PSI reading 128'],
-		  ['8AM', 122,'20 June 8AM PSI reading 122'],
-		  ['9AM', 131,'20 June 9AM PSI reading 131'],
-		  ['10AM', 153,'20 June 10AM PSI reading 153'],
+		  ['10AM 20\'', 153,'20 June 10AM PSI reading 153'],
 		  ['11AM', 198,'20 June 11AM PSI reading 198'],
 		  ['12PM', 299,'20 June 12PM PSI reading 299'],
 		  ['1PM', 371,'20 June 1PM PSI reading 371'],
@@ -130,14 +127,22 @@
 		  ['11PM', 250,'20 June 11PM PSI reading 250'],
 		  ['12AM 21\'', 210,'21 June 12AM PSI reading 210'],
 		  ['1AM', 173,'21 June 1AM PSI reading 173'],
-		  ['2AM', 143,'21 June 2AM PSI reading 143']		  
+		  ['2AM', 143,'21 June 2AM PSI reading 143'],
+			['3AM', 119,'21 June 3AM PSI reading 119'],
+			['4AM', 104,'21 June 4AM PSI reading 104'],
+			['5AM', 96,'21 June 5AM PSI reading 96'],
+			['6AM', 94,'21 June 6AM PSI reading 94'],
+			['7AM', 111,'21 June 7AM PSI reading 111'],
+			['8AM', 158,'21 June 8AM PSI reading 158'],
+			['9AM', 256,'21 June 9AM PSI reading 256'],
+			['10AM', 367,'21 June 10AM PSI reading 367']
 		]);
 		
         var options = {
           title: 'PSI Reading published by NEA for 20-21 June 2013',
 		  chartArea: {left:35},
           hAxis: {title: '', titleTextStyle: {color: 'red'}, textStyle:{fontSize:9}},
-		  vAxis: {minvalue: 0, maxValue:400, gridlines: {count: 9}, textStyle:{fontSize:11}},
+		  vAxis: {minvalue: 0, maxValue:450, gridlines: {count: 9}, textStyle:{fontSize:11}},
 		  legend: {position: 'none', alignment: 'start'},
         };
 
@@ -168,10 +173,10 @@
 		</p>
 
 		<p class="lead">
-			Update : PSI reading on 2AM 21 Jun 2013 is <strong>143 (unhealthy)</strong>
+			Update : PSI reading on 10AM 21 Jun 2013 is <strong>367 (hazardous)</strong>
 		</p>
 		<h3>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url='http://psichart.com/bar/' data-text='Update : PSI reading on 2AM 21 Jun 2013 is 143 [unhealthy]' data-via="Taungoo_Thar" data-count="none" data-hashtags="sghaze" data-size="large">Tweet</a>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url='http://psichart.com/bar/' data-text='Update : PSI reading on 10AM 21 Jun 2013 is 367 [hazardous]' data-via="Taungoo_Thar" data-count="none" data-hashtags="sghaze" data-size="large">Tweet</a>
 		</h3>
 	  </div>
 	  
@@ -180,7 +185,7 @@
 	<div class="row-fluid">
 		<div class="span12">		
 			
-			<div id="chart_div" style="width: 1200px; height: 450px;"></div>
+			<div id="chart_div" style="width: 1200px; height: 500px;"></div>
 			
 			<div class="row-fluid">
 				<div class="span6">					
