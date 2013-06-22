@@ -92,10 +92,12 @@ sel.append("rect")
       if(d.PSI<50){
         return "green";
       }else if(d.PSI<100){
-        return "yellow";
+        return "LightYellow";
       }else if(d.PSI<200){
-        return "orange";
+        return "yellow";
       }else if(d.PSI<300){
+        return "orange";
+      }else if(d.PSI<400){
         return "red";
       }else{
         return "black";
