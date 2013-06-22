@@ -87,7 +87,19 @@ sel.append("rect")
    .attr("x", function(d) { return x(d.time); })
    .attr("width", x.rangeBand())
    .attr("y", function(d) { return y(d.PSI); })
-   .attr("height", function(d) { return height - y(d.PSI); });
+   .attr("height", function(d) { return height - y(d.PSI); })
+   .style("fill", function(d) {
+      if(d.PSI<50){
+        return "green";
+      }else if(d.PSI<100){
+        return "yellow";
+      }else if(d.PSI<200){
+        return "orange";
+      }else if(d.PSI<300){
+        return "red";
+      }else{
+        return "black";
+      }});
 
 sel.append("text")
    .attr("x", function(d) { return x(d.time); })
