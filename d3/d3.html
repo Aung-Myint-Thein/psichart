@@ -22,15 +22,15 @@ body {
 }
 
 </style>
-<body>
+<body>     
   <div id="chart_div" class="chart"></div> 
   
 <script src="d3.v3/d3.v3.min.js"></script>
 <script>
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 40, right: 20, bottom: 30, left: 40},
+    width = 1000 - margin.left - margin.right,
+    height = 420 - margin.top - margin.bottom ;
 
 var tformat = d3.format(".0");
 
@@ -90,13 +90,20 @@ d3.csv("data2.csv", function(error, data) {
       .attr("class", "y axis")
       .call(yAxis);
       
+  svg.append("text")
+        .attr("x", 0)             
+        .attr("y", 0 - (margin.top/2))
+        .style("font-size", "14px") 
+        .style("font-weight","bold")  
+        .text("3 hr average PSI Reading by NEA 22-23 June 2013");
+      
   var sel = svg.selectAll(".bar")
     .data(data).enter();
 
 sel.append("rect")
    .attr("class", "bar")
-   .attr("x", function(d) { return x(d.time); })
-   .attr("width", x.rangeBand())
+   .attr("x", function(d) { return x(d.time)+4; })
+   .attr("width", x.rangeBand()-8)
    .attr("y", function(d) { return y(d.PSI); })
    .attr("height", function(d) { return height - y(d.PSI); })
    .style("fill", function(d) {
