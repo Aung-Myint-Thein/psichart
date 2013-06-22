@@ -78,7 +78,7 @@ d3.csv("data.csv", function(error, data) {
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("PSI 3 hr average reading");
-
+      
   var sel = svg.selectAll(".bar")
     .data(data).enter();
 
@@ -90,15 +90,15 @@ sel.append("rect")
    .attr("height", function(d) { return height - y(d.PSI); })
    .style("fill", function(d) {
       if(d.PSI<50){
-        return "green";
+        return "#19D1FF";
       }else if(d.PSI<100){
-        return "gold";
+        return "#FFDF4D";
       }else if(d.PSI<200){
-        return "orange";
+        return "#4DB84D";
       }else if(d.PSI<300){
-        return "sienna";
+        return "#E69400";
       }else if(d.PSI<400){
-        return "red";
+        return "#B80000";
       }else{
         return "black";
       }});
