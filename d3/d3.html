@@ -70,16 +70,16 @@ d3.csv("data.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.time; }));
   y.domain([0, d3.max(data, function(d) { return d.PSI; })]);
   
-      // Draw Y-axis grid lines
-svg.selectAll("line.y")
-  .data(y.ticks(4))
-  .enter().append("line")
-  .attr("class", "y")
-  .attr("x1", 0)
-  .attr("x2", width - 8)
-  .attr("y1", y)
-  .attr("y2", y)
-  .style("stroke", "#ccc");
+  // Draw Y-axis grid lines
+  svg.selectAll("line.y")
+    .data(y.ticks(4))
+    .enter().append("line")
+    .attr("class", "y")
+    .attr("x1", 0)
+    .attr("x2", width - 8)
+    .attr("y1", y)
+    .attr("y2", y)
+    .style("stroke", "#ccc");
 
   svg.append("g")
       .attr("class", "x axis")
@@ -88,13 +88,7 @@ svg.selectAll("line.y")
 
   svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("PSI 3 hr average reading");
+      .call(yAxis);
       
   var sel = svg.selectAll(".bar")
     .data(data).enter();
