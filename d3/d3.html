@@ -25,7 +25,7 @@ body {
 <body>
   <div id="chart_div" class="chart"></div> 
   
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.v3/d3.v3.min.js"></script>
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -92,11 +92,11 @@ sel.append("rect")
       if(d.PSI<50){
         return "green";
       }else if(d.PSI<100){
-        return "LightYellow";
+        return "gold";
       }else if(d.PSI<200){
-        return "yellow";
-      }else if(d.PSI<300){
         return "orange";
+      }else if(d.PSI<300){
+        return "sienna";
       }else if(d.PSI<400){
         return "red";
       }else{
