@@ -51,7 +51,7 @@ d3.csv("d3/data2.csv", function(error, data) {
     .attr("x2", width - 8)
     .attr("y1", y)
     .attr("y2", y)
-    .style("stroke", "#ccc");
+    .style("stroke", "#e6e6e6");
 
   svg.append("g")
       .attr("class", "x axis")
