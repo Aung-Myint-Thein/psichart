@@ -86,29 +86,9 @@
       .marketing p + h4 {
         margin-top: 28px;
       }
-      
-      g.tick.major {
-        font-size: 10px;
-        font: "sans-serif";
-      }
-      
-      .x.axis path{
-        display: none;
-      }
-      
-      .axis path, .axis line {
-        fill: none;
-        stroke: rgb(0,0,0);
-        shape-rendering: crispedges;
-      }
-      
     </style>
-    
-    <!-- Need to fix this if we want to do responsive 
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    -->
-    
-    
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -120,6 +100,57 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+                var data2 = new google.visualization.DataTable();
+                data2.addColumn('string', 'time'); 
+                data2.addColumn('number', 'PSI reading');
+                data2.addColumn({type:'string', role:'tooltip'});       
+                
+                data2.addRows([                        			
+			['12AM 23\'', 91,'23 June 12AM PSI reading 91'],
+			['1AM', 90,'23 June 1AM PSI reading 90'],
+			['2AM', 88,'23 June 2AM PSI reading 88'],
+			['3AM', 89,'23 June 3AM PSI reading 89'],
+			['4AM', 93,'23 June 4AM PSI reading 93'],
+			['5AM', 99,'23 June 5AM PSI reading 99'],
+			['6AM', 104,'23 June 6AM PSI reading 104'],
+			['7AM', 106,'23 June 7AM PSI reading 106'],
+			['8AM', 105,'23 June 8AM PSI reading 105'],
+			['9AM', 101,'23 June 9AM PSI reading 101'],
+			['10AM', 96,'23 June 10AM PSI reading 96'],
+			['11AM', 90,'23 June 11AM PSI reading 90'],
+			['12PM', 83,'23 June 12PM PSI reading 83'],
+			['1PM', 80,'23 June 1PM PSI reading 80'],
+			['2PM', 78,'23 June 2PM PSI reading 78'],
+			['3PM', 78,'23 June 3PM PSI reading 78'],
+			['4PM', 77,'23 June 4PM PSI reading 77'],
+			['5PM', 77,'23 June 5PM PSI reading 77'],
+			['6PM', 76,'23 June 6PM PSI reading 76'],
+			['7PM', 75,'23 June 7PM PSI reading 75'],
+			['8PM', 75,'23 June 8PM PSI reading 75'],
+			['9PM', 76,'23 June 9PM PSI reading 76'],
+			['10PM', 79,'23 June 10PM PSI reading 79'],
+			['11PM', 80,'23 June 11PM PSI reading 80'],
+			['12AM 24\'', 76,'24 June 12AM PSI reading 76'],
+			['1AM', 70,'24 June 1AM PSI reading 70']
+                ]);
+                
+        var options = {
+          title: 'PSI Reading published by NEA for 23-24 June 2013',
+          chartArea: {left:35, top: 35, height: "80%", width: "90%"},
+          hAxis: {title: '', titleTextStyle: {color: 'red'}, textStyle:{fontSize:9}},
+          vAxis: {minvalue: 0, maxValue:450, gridlines: {count: 9}, textStyle:{fontSize:11}},
+          legend: {position: 'none', alignment: 'start'},
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data2, options);
+      }
+    </script>
   </head>
 
   <body>
@@ -143,10 +174,10 @@
                 </p>
 
                 <p class="lead">
-                        Update : PSI reading on 3AM 23 Jun 2013 is <strong>89 (moderate)</strong>
+                        Update : PSI reading on 1AM 24 Jun 2013 is <strong>70 (moderate)</strong>
                 </p>
                 <h3>
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url='http://psichart.com/bar/' data-text='Update : PSI reading on 3AM 23 Jun 2013 is 89 [moderate]' data-via="Taungoo_Thar" data-count="none" data-hashtags="sghaze" data-size="large">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url='http://psichart.com/bar/' data-text='Update : PSI reading on 1AM 24 Jun 2013 is 70 [moderate]' data-via="Taungoo_Thar" data-count="none" data-hashtags="sghaze" data-size="large">Tweet</a>
                 </h3>
           </div>
           
@@ -154,11 +185,8 @@
           
         <div class="row-fluid">
                 <div class="span12">            
-                        <div class="row-fluid">
-                          <div class="span12">
-                          <div id="chart_div_d3" style="width: 1000px; height: 420px;"></div>                                      
-                          </div>  
-                        </div>
+                        
+                        <div id="chart_div" style="width: 1000px; height: 400px;"></div>                                      
                         
                         <div class="row-fluid">
 			  
@@ -238,7 +266,7 @@
 	
         <div id="footer">
       <div class="container">
-        <p class="muted credit">Developed by <a href="https://www.facebook.com/aung.m.thein">Aung Myint Thein</a> using <a href="http://d3js.org/">d3</a> and <a href="http://twitter.github.io/bootstrap/index.html">twitter bootstrap</a>. Source codes are available at <a href="https://github.com/AungMyintThein/psichart">github.</p>
+        <p class="muted credit">Developed by <a href="http://www.linkedin.com/in/aungmyintthein">Aung Myint Thein</a> using <a href="https://developers.google.com/chart/">google chart</a> and <a href="http://twitter.github.io/bootstrap/index.html">twitter bootstrap</a>. Source codes are available at <a href="https://github.com/AungMyintThein/psichart">github.</p>
       </div>
     </div>
         
@@ -261,8 +289,5 @@
   ga('send', 'pageview');
 
 </script>
-        
-            <script src="d3/d3.v3/d3.v3.min.js"></script>
-    <script src="d3/bar.js"></script>
   </body>
 </html>
