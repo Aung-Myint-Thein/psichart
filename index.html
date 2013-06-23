@@ -168,34 +168,79 @@
 				      <tr>				  
 					<th>PSI value</th>
 					<th>Air Quality Description</th>
-					
+					<th>Bar Color*</th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				      <tr>					
 					<td>0 - 50</td>
 					<td>Good</td>
-					
+					<td>
+					  <canvas id="Good" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("Good");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#19D1FF";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>51 - 100</td>
 					<td>Moderate</td>
-					
+					<td>
+					  <canvas id="moderated" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("moderated");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#FFDF4D";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>101 - 200</td>
 					<td>Unhealthy</td>
-					
+					<td>
+					  <canvas id="Unhealthy" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("Unhealthy");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#4DB84D";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>201 - 300</td>
 					<td>Very unhealthy</td>
-					
+					<td>
+					  <canvas id="vUnhealthy" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("vUnhealthy");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#E69400";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>Above 300</td>
 					<td>Hazardous</td>
-					
+					<td>
+					  <canvas id="hazardous" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("hazardous");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#B80000";
+					    ctx.fillRect(0,0,40,10);				    
+					  </script>
+					</td>
 				      </tr>
 				    </tbody>
 				  </table>			      
