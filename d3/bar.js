@@ -67,7 +67,7 @@ d3.csv("d3/data2.csv", function(error, data) {
         .attr("y", 0 - (margin.top/2))
         .style("font-size", "14px") 
         .style("font-weight","bold")  
-        .text("3 hr average PSI Reading by NEA 22-23 June 2013");
+        .text("3 hr average PSI Reading by NEA 23-24 June 2013");
       
   var sel = svg.selectAll(".bar")
     .data(data).enter();
