@@ -280,8 +280,8 @@
             }
         }
         
-        $('#update_message').html("<h2>"+ jdata['data']['latest']['psi'] + " " + alertLevel(jdata['data']['latest']['psi']) + "</h2>"+
-                                  "3-hr PSI "+jdata['data']['latest']['updated_at']);
+        $('#update_message').html("<h2>"+ jdata['data']['latest']['psi'] + "<br>" + alertLevel(jdata['data']['latest']['psi']) + "</h2>"+
+                                  "<p class='muted'>3-hr PSI "+jdata['data']['latest']['updated_at']+"</p>");
            
             }//end of ajax success
             });
@@ -298,10 +298,10 @@
         <h1>Singapore PSI Chart</h1>
         <p class="lead">
             The data and information from this website is sorely for public usage. <br>
-            Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a> <br>
-            <p id="update_message" class="lead"></p>
+            Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a> <br>            
         </p>
-          </div>
+	<p id="update_message"></p>
+      </div>
           
           
         <div class="row-fluid">
