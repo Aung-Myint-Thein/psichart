@@ -142,36 +142,21 @@
 						jsonpCallback: 'getPSI',
 						success: function(data) { 
 							//console.log(data);
-							console.log(data['data']);
+							
+							var data_key_array = new Array();
+							var data_to_bar = new Array();
 							
 							for (var data_key in data['data']) {
-							   /*var obj = data['data'][data_key];
-							   for (var prop in obj) {
-								  // important check that this is objects own property 
-								  // not from prototype prop inherited
-								  if(obj.hasOwnProperty(prop)){
-									console.log(prop + " = " + obj[prop]);
-								  }
-							   }*/
-							   console.log(data_key);
+							   data_key_array.push(data_key);							   
 							}
 							
-							/*
-							for (var i=10;i<25;i++) {
-								var datestring = '2013-06-22 '+i;
-								console.log(datestring);
-								console.log(data['data'][datestring]['psi']);
-							}*/
+							for (var i=0;i<25;i++) {
+								//console.log(data['data'][data_key_array[data_key_array.length-1-i]]['psi']);
+								data_to_bar.push({"time":data_key_array[data_key_array.length-1-i], "psi":data['data'][data_key_array[data_key_array.length-1-i]]['psi']});
+							}
 							
+							console.log(data_to_bar);
 							
-							
-							if (parseInt(data['data']['latest']['psi']) > 200) {
-								$('#psi').html("3-Hr PSI: <span style='color:red; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
-							} else  if (parseInt(data['data']['latest']['psi']) > 100 && parseInt(data['data']['latest']['psi']) < 201){
-								$('#psi').html("3-Hr PSI: <span style='color:#e87a22; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
-							} else {
-								$('#psi').html("3-Hr PSI: <span style='color:blueviolet; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
-							}							
 						}
 					});
 			});
@@ -308,6 +293,6 @@
 </script>
         
             <script src="d3/d3.v3/d3.v3.min.js"></script>
-    <script src="d3/bar.js"></script>
+    <script src="d3/bar2.js"></script>
   </body>
 </html>
