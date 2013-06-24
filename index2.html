@@ -19,8 +19,8 @@
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-	<script src="d3/d3.v3/d3.v3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <script src="d3/d3.v3/d3.v3.min.js"></script>
     <style type="text/css">
       
           /* Sticky footer styles
@@ -126,17 +126,17 @@
 
   <body>
   <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=359858724141192";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-  
-  
-  <script>
-			
+    <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=359858724141192";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+<script>			
     $(document).ready(function() {
       $.ajax({
         url: "http://test.warrtee.com/getpsi.php?callback=?",
@@ -172,124 +172,137 @@
             data_to_bar[j].timestamp = date;
           }
           
-var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 1000 - margin.left - margin.right,
-    height = 420 - margin.top - margin.bottom ;
-
-var tformat = d3.format(".0");
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
+        var margin = {top: 40, right: 20, bottom: 30, left: 40},
+            width = 1000 - margin.left - margin.right,
+            height = 420 - margin.top - margin.bottom ;
+        
+        var tformat = d3.format(".0");
+        
+        var x = d3.scale.ordinal()
+            .rangeRoundBands([0, width], .1);
+        
+        var y = d3.scale.linear()
+            .range([height, 0]);
+            
+            var svg = d3.select("#chart_div_d3").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+        
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(tformat);
+                
+                var data = data_to_bar;
+                console.log(data_to_bar);
+                
+          data.forEach(function(d) {
+            d.PSI = +d.PSI;
+          });
+        
+          x.domain(data.map(function(d) { return d.time; }));
+          y.domain([0, d3.max(data, function(d) { return d.PSI; })]);
+          
+          // Draw Y-axis grid lines
+          svg.selectAll("line.y")
+            .data(y.ticks(4))
+            .enter().append("line")
+            .attr("class", "y")
+            .attr("x1", 0)
+            .attr("x2", width - 8)
+            .attr("y1", y)
+            .attr("y2", y)
+            .style("stroke", "#e6e6e6");
+        
+          svg.append("g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0," + height + ")")
+              .call(xAxis);
+        
+          svg.append("g")
+              .attr("class", "y axis")
+              .call(yAxis);
+              
+          svg.append("text")
+                .attr("x", 0)             
+                .attr("y", 0 - (margin.top/2))
+                .style("font-size", "14px") 
+                .style("font-weight","bold")  
+                .text("3 hr average PSI Reading by NEA 24-25 June 2013");
+              
+          var sel = svg.selectAll(".bar")
+            .data(data).enter();
+        
+        sel.append("rect")
+           .attr("class", "bar")
+           .attr("x", function(d) { return x(d.time)+4; })
+           .attr("width", x.rangeBand()-8)
+           .attr("y", function(d) { return y(d.PSI); })
+           .attr("height", function(d) { return height - y(d.PSI); })
+           .style("fill", function(d) {
+              if(d.PSI<50){
+                return "#19D1FF";
+              }else if(d.PSI<100){
+                return "#FFDF4D";
+              }else if(d.PSI<200){
+                return "#4DB84D";
+              }else if(d.PSI<300){
+                return "#E69400";
+              }else if(d.PSI<400){
+                return "#B80000";
+              }else{
+                return "black";
+              }});
+        
+        sel.append("text")
+           .attr("x", function(d) { return x(d.time); })
+           .attr("y", function(d) { return y(d.PSI)- 5; })
+           .attr("font-size", "11px")
+           .text(function(d) { return d.PSI});
+           
+        function alertLevel(psi){
+            if(psi<50){
+                return "<span style='color:#19D1FF'>[Good]</span>";
+            }else if(psi<100){
+                return "<span style='color:#FFDF4D'>[Moderate]</span>";
+            }else if(psi<200){
+                return "<span style='color:#4DB84D'>[Unhealthy]</span>";
+            }else if(psi<300){
+                return "<span style='color:#E69400'>[Very unhealthy]</span>";
+            }else{
+                return "<span style='color:#B80000'>[Hazardous]</span>";
+            }
+        }
+        
+        $('#update_message').html("<h2>"+ jdata['data']['latest']['psi'] + " " + alertLevel(jdata['data']['latest']['psi']) + "</h2>"+
+                                  "3-hr PSI "+jdata['data']['latest']['updated_at']);
+           
+            }//end of ajax success
+            });
+          });
     
-    var svg = d3.select("#chart_div_d3").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+        
+</script>
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(tformat);
-	
-	var data = data_to_bar;
-	console.log(data_to_bar);
-	
-  data.forEach(function(d) {
-    d.PSI = +d.PSI;
-  });
-
-  x.domain(data.map(function(d) { return d.time; }));
-  y.domain([0, d3.max(data, function(d) { return d.PSI; })]);
   
-  // Draw Y-axis grid lines
-  svg.selectAll("line.y")
-    .data(y.ticks(4))
-    .enter().append("line")
-    .attr("class", "y")
-    .attr("x1", 0)
-    .attr("x2", width - 8)
-    .attr("y1", y)
-    .attr("y2", y)
-    .style("stroke", "#e6e6e6");
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-      
-  svg.append("text")
-        .attr("x", 0)             
-        .attr("y", 0 - (margin.top/2))
-        .style("font-size", "14px") 
-        .style("font-weight","bold")  
-        .text("3 hr average PSI Reading by NEA 23-24 June 2013");
-      
-  var sel = svg.selectAll(".bar")
-    .data(data).enter();
-
-sel.append("rect")
-   .attr("class", "bar")
-   .attr("x", function(d) { return x(d.time)+4; })
-   .attr("width", x.rangeBand()-8)
-   .attr("y", function(d) { return y(d.PSI); })
-   .attr("height", function(d) { return height - y(d.PSI); })
-   .style("fill", function(d) {
-      if(d.PSI<50){
-        return "#19D1FF";
-      }else if(d.PSI<100){
-        return "#FFDF4D";
-      }else if(d.PSI<200){
-        return "#4DB84D";
-      }else if(d.PSI<300){
-        return "#E69400";
-      }else if(d.PSI<400){
-        return "#B80000";
-      }else{
-        return "black";
-      }});
-
-sel.append("text")
-   .attr("x", function(d) { return x(d.time); })
-   .attr("y", function(d) { return y(d.PSI)- 5; })
-   .attr("font-size", "11px")
-   .text(function(d) { return d.PSI});
-    }
-    });
-  });
-			
-		</script>
-		
         <div id="wrap">
     <div class="container">
         
       <div class="jumbotron">
         <h1>Singapore PSI Chart</h1>
         <p class="lead">
-                        The data and information from this website is sorely for public usage. <br>
-                        Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a> <br>          
-                </p>
-<div id="psi"></div>
-                <p class="lead">
-                        Update : PSI reading on 3AM 23 Jun 2013 is <strong>89 (moderate)</strong>
-                </p>
-                <h3>
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url='http://psichart.com/bar/' data-text='Update : PSI reading on 3AM 23 Jun 2013 is 89 [moderate]' data-via="Taungoo_Thar" data-count="none" data-hashtags="sghaze" data-size="large">Tweet</a>
-                </h3>
+            The data and information from this website is sorely for public usage. <br>
+            Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a> <br>
+            <p id="update_message" class="lead"></p>
+        </p>
           </div>
           
-      <hr>
           
         <div class="row-fluid">
                 <div class="span12">            
@@ -308,38 +321,83 @@ sel.append("text")
 				      <tr>				  
 					<th>PSI value</th>
 					<th>Air Quality Description</th>
-					
+					<th>Bar Color *</th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				      <tr>					
 					<td>0 - 50</td>
 					<td>Good</td>
-					
+					<td>
+					  <canvas id="Good" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("Good");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#19D1FF";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>51 - 100</td>
 					<td>Moderate</td>
-					
+					<td>
+					  <canvas id="moderated" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("moderated");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#FFDF4D";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>101 - 200</td>
 					<td>Unhealthy</td>
-					
+					<td>
+					  <canvas id="Unhealthy" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("Unhealthy");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#4DB84D";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>201 - 300</td>
 					<td>Very unhealthy</td>
-					
+					<td>
+					  <canvas id="vUnhealthy" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("vUnhealthy");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#E69400";
+					    ctx.fillRect(0,0,40,10);					    
+					  </script>
+					</td>
 				      </tr>
 				      <tr>					
 					<td>Above 300</td>
 					<td>Hazardous</td>
-					
+					<td>
+					  <canvas id="hazardous" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+					  
+					  <script>
+					    var c=document.getElementById("hazardous");
+					    var ctx=c.getContext("2d");
+					    ctx.fillStyle="#B80000";
+					    ctx.fillRect(0,0,40,10);				    
+					  </script>
+					</td>
 				      </tr>
 				    </tbody>
 				  </table>			      
-				    
+				  * NEA doesn't provide Bar Color.
 				  
 				</div>
 				
@@ -377,7 +435,7 @@ sel.append("text")
 	
         <div id="footer">
       <div class="container">
-        <p class="muted credit">Developed by <a href="https://www.facebook.com/aung.m.thein">Aung Myint Thein</a> using <a href="https://developers.google.com/chart/">google chart</a> and <a href="http://twitter.github.io/bootstrap/index.html">twitter bootstrap</a>. Source codes are available at <a href="https://github.com/AungMyintThein/psichart">github.</p>
+        <p class="muted credit">Developed by <a href="https://www.facebook.com/aung.m.thein">Aung Myint Thein</a> using <a href="http://d3js.org/">d3</a> and <a href="http://twitter.github.io/bootstrap/index.html">twitter bootstrap</a>. Source codes are available at <a href="https://github.com/AungMyintThein/psichart">github.</p>
       </div>
     </div>
         
@@ -390,17 +448,15 @@ sel.append("text")
     <script src="bootstrap/js/bootstrap.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         
-    <script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-41856482-1', 'psichart.com');
-	  ga('send', 'pageview');
-
-	</script>       
-    
-    
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-41856482-1', 'psichart.com');
+        ga('send', 'pageview');
+      
+      </script>
   </body>
 </html>
