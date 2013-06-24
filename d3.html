@@ -132,6 +132,31 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
   
+  
+  <script>
+			$(document).ready(function() {
+				$.ajax({
+						url: "http://test.warrtee.com/getpsi.php?callback=?",
+						dataType: "jsonp",
+						jsonpCallback: 'getPSI',
+						success: function(data) { 
+							//console.log(data);
+							for (var i=0;i<25;i++) {								
+								console.log(data['data']['latest']['psi']);
+							}
+							
+							if (parseInt(data['data']['latest']['psi']) > 200) {
+								$('#psi').html("3-Hr PSI: <span style='color:red; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
+							} else  if (parseInt(data['data']['latest']['psi']) > 100 && parseInt(data['data']['latest']['psi']) < 201){
+								$('#psi').html("3-Hr PSI: <span style='color:#e87a22; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
+							} else {
+								$('#psi').html("3-Hr PSI: <span style='color:blueviolet; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
+							}							
+						}
+					});
+			});
+		</script>
+		
         <div id="wrap">
     <div class="container">
         
@@ -141,7 +166,7 @@
                         The data and information from this website is sorely for public usage. <br>
                         Data source : <a href="http://www.nea.gov.sg/psi">National Environment Agency</a> <br>          
                 </p>
-
+<div id="psi"></div>
                 <p class="lead">
                         Update : PSI reading on 3AM 23 Jun 2013 is <strong>89 (moderate)</strong>
                 </p>
