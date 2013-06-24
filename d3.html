@@ -137,33 +137,23 @@
   
   <script>
 			
-			$(document).ready(function() {
-				$.ajax({
-						url: "http://test.warrtee.com/getpsi.php?callback=?",
-						dataType: "jsonp",
-						jsonpCallback: 'getPSI',
-						success: function(jdata) { 
-							//console.log(data);
-							
-							var data_key_array = new Array();
-							var data_to_bar = new Array();
-							
-							for (var data_key in jdata['data']) {
-							   data_key_array.push(data_key);							   
-							}
-							
-							for (var i=0;i<25;i++) {
-								//console.log(data['data'][data_key_array[data_key_array.length-1-i]]['psi']);
-								data_to_bar.push({"time":data_key_array[data_key_array.length-1-i], "PSI":jdata['data'][data_key_array[data_key_array.length-1-i]]['psi']});
-							}
-							
-							
-							
-							
-							
-							
-							
-
+    $(document).ready(function() {
+      $.ajax({
+        url: "http://test.warrtee.com/getpsi.php?callback=?",
+        dataType: "jsonp",
+        jsonpCallback: 'getPSI',
+        success: function(jdata) {
+          var data_key_array = new Array();
+          var data_to_bar = new Array();
+                
+          for (var data_key in jdata['data']) {
+            data_key_array.push(data_key);							   
+          }
+                
+          for (var i=0;i<25;i++) {            
+            data_to_bar.push({"time":data_key_array[data_key_array.length-25+i], "PSI":jdata['data'][data_key_array[data_key_array.length-25+i]]['psi']});
+          }
+          
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 1000 - margin.left - margin.right,
     height = 420 - margin.top - margin.bottom ;
@@ -176,16 +166,12 @@ var x = d3.scale.ordinal()
 var y = d3.scale.linear()
     .range([height, 0]);
     
-    
     var svg = d3.select("#chart_div_d3").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
-    
-
-
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom");
