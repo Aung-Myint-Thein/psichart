@@ -142,19 +142,19 @@
 						url: "http://test.warrtee.com/getpsi.php?callback=?",
 						dataType: "jsonp",
 						jsonpCallback: 'getPSI',
-						success: function(data) { 
+						success: function(jdata) { 
 							//console.log(data);
 							
 							var data_key_array = new Array();
 							var data_to_bar = new Array();
 							
-							for (var data_key in data['data']) {
+							for (var data_key in jdata['data']) {
 							   data_key_array.push(data_key);							   
 							}
 							
 							for (var i=0;i<25;i++) {
 								//console.log(data['data'][data_key_array[data_key_array.length-1-i]]['psi']);
-								data_to_bar.push({"time":data_key_array[data_key_array.length-1-i], "PSI":data['data'][data_key_array[data_key_array.length-1-i]]['psi']});
+								data_to_bar.push({"time":data_key_array[data_key_array.length-1-i], "PSI":jdata['data'][data_key_array[data_key_array.length-1-i]]['psi']});
 							}
 							
 							
@@ -195,8 +195,6 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(tformat);
 	
-//var data = [{time:2005, PSI:50},{time:2006, PSI:70},{time:2007, PSI:40},];
-
 	var data = data_to_bar;
 	console.log(data_to_bar);
 	
