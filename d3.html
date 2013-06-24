@@ -19,6 +19,7 @@
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
     <style type="text/css">
       
           /* Sticky footer styles
@@ -141,9 +142,28 @@
 						jsonpCallback: 'getPSI',
 						success: function(data) { 
 							//console.log(data);
-							for (var i=0;i<25;i++) {								
-								console.log(data['data']['latest']['psi']);
+							console.log(data['data']);
+							
+							for (var data_key in data['data']) {
+							   /*var obj = data['data'][data_key];
+							   for (var prop in obj) {
+								  // important check that this is objects own property 
+								  // not from prototype prop inherited
+								  if(obj.hasOwnProperty(prop)){
+									console.log(prop + " = " + obj[prop]);
+								  }
+							   }*/
+							   console.log(data_key);
 							}
+							
+							/*
+							for (var i=10;i<25;i++) {
+								var datestring = '2013-06-22 '+i;
+								console.log(datestring);
+								console.log(data['data'][datestring]['psi']);
+							}*/
+							
+							
 							
 							if (parseInt(data['data']['latest']['psi']) > 200) {
 								$('#psi').html("3-Hr PSI: <span style='color:red; font-weight:bold;'>" + data['data']['latest']['psi'] + "</span>");
