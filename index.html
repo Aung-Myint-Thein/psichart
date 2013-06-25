@@ -247,19 +247,28 @@
            .attr("height", function(d) { return height - y(d.PSI); })
            .style("fill", function(d) {
               if(d.PSI<50){
-                return "#19D1FF";
+                return "#19A319";
               }else if(d.PSI<100){
-                return "#FFDF4D";
+                return "#FFD700";
               }else if(d.PSI<200){
-                return "#4DB84D";
-              }else if(d.PSI<300){
                 return "#E69400";
-              }else if(d.PSI<400){
+              }else if(d.PSI<300){
                 return "#B80000";
+              }else if(d.PSI<400){
+                return "#7B307B";
               }else{
-                return "black";
+                return "660000";
               }});
         
+		/*
+		green	00FF00
+		yellow	FFFF00
+		orange	E69400
+		red		B80000
+		purple	7B307B
+		
+		*/
+		
         sel.append("text")
            .attr("x", function(d) { return x(d.time); })
            .attr("y", function(d) { return y(d.PSI)- 5; })
@@ -268,15 +277,15 @@
            
         function alertLevel(psi){
             if(psi<50){
-                return "<span style='color:#19D1FF'>[Good]</span>";
+                return "<span style='color:#19A319'>[Good]</span>";
             }else if(psi<100){
-                return "<span style='color:#FFDF4D'>[Moderate]</span>";
+                return "<span style='color:#FFD700'>[Moderate]</span>";
             }else if(psi<200){
-                return "<span style='color:#4DB84D'>[Unhealthy]</span>";
+                return "<span style='color:#E69400'>[Unhealthy]</span>";
             }else if(psi<300){
-                return "<span style='color:#E69400'>[Very unhealthy]</span>";
+                return "<span style='color:#B80000'>[Very unhealthy]</span>";
             }else{
-                return "<span style='color:#B80000'>[Hazardous]</span>";
+                return "<span style='color:#7B307B'>[Hazardous]</span>";
             }
         }
         
@@ -330,11 +339,11 @@
 					<td>Good</td>
 					<td>
 					  <canvas id="Good" width="40" height="10" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
-					  
+		
 					  <script>
 					    var c=document.getElementById("Good");
 					    var ctx=c.getContext("2d");
-					    ctx.fillStyle="#19D1FF";
+					    ctx.fillStyle="#19A319";
 					    ctx.fillRect(0,0,40,10);					    
 					  </script>
 					</td>
@@ -348,7 +357,7 @@
 					  <script>
 					    var c=document.getElementById("moderated");
 					    var ctx=c.getContext("2d");
-					    ctx.fillStyle="#FFDF4D";
+					    ctx.fillStyle="#FFD700";
 					    ctx.fillRect(0,0,40,10);					    
 					  </script>
 					</td>
@@ -362,7 +371,7 @@
 					  <script>
 					    var c=document.getElementById("Unhealthy");
 					    var ctx=c.getContext("2d");
-					    ctx.fillStyle="#4DB84D";
+					    ctx.fillStyle="#E69400";
 					    ctx.fillRect(0,0,40,10);					    
 					  </script>
 					</td>
@@ -376,7 +385,7 @@
 					  <script>
 					    var c=document.getElementById("vUnhealthy");
 					    var ctx=c.getContext("2d");
-					    ctx.fillStyle="#E69400";
+					    ctx.fillStyle="#B80000";
 					    ctx.fillRect(0,0,40,10);					    
 					  </script>
 					</td>
@@ -390,7 +399,7 @@
 					  <script>
 					    var c=document.getElementById("hazardous");
 					    var ctx=c.getContext("2d");
-					    ctx.fillStyle="#B80000";
+					    ctx.fillStyle="#7B307B";
 					    ctx.fillRect(0,0,40,10);				    
 					  </script>
 					</td>
@@ -435,7 +444,7 @@
 	
         <div id="footer">
       <div class="container">
-        <p class="muted credit">Developed by <a href="http://www.linkedin.com/in/aungmyintthein">Aung Myint Thein</a> and <a href="https://www.facebook.com/soethetaung?fref=ts&ref=br_tf">Soe Thet Aung</a> using <a href="http://d3js.org/">d3</a> and <a href="http://twitter.github.io/bootstrap/index.html">twitter bootstrap</a>. Source codes are available at <a href="https://github.com/AungMyintThein/psichart">github.</p>
+        <p class="muted credit">Developed by <a href="http://www.linkedin.com/in/aungmyintthein">Aung Myint Thein</a> and <a href="http://www.linkedin.com/pub/soe-thet-aung/2a/125/516">Soe Thet Aung</a> using <a href="http://d3js.org/">d3</a> and <a href="http://twitter.github.io/bootstrap/index.html">twitter bootstrap</a>. Source codes are available at <a href="https://github.com/AungMyintThein/psichart">github.</p>
       </div>
     </div>
         
