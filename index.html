@@ -150,10 +150,10 @@
             data_key_array.push(data_key);							   
           }
                 
-          for (var i=0;i<24;i++) {            
-            data_to_bar.push({"time":jdata['data'][data_key_array[data_key_array.length-24+i]]['updated_at'],
-                              "PSI":jdata['data'][data_key_array[data_key_array.length-24+i]]['psi'],
-                              "timestamp":data_key_array[data_key_array.length-24+i]});
+          for (var i=0;i<23;i++) {            
+            data_to_bar.push({"time":jdata['data'][data_key_array[data_key_array.length-23+i]]['updated_at'],
+                              "PSI":jdata['data'][data_key_array[data_key_array.length-23+i]]['psi'],
+                              "timestamp":data_key_array[data_key_array.length-23+i]});
           }
           
           for(var j=0;j<data_to_bar.length;j++){
