@@ -112,7 +112,7 @@
       }
       
     </style>
-    
+	
     <!-- Need to fix this if we want to do responsive 
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     -->
@@ -234,7 +234,7 @@
                 .attr("y", 0 - (margin.top/2))
                 .style("font-size", "14px") 
                 .style("font-weight","bold")  
-                .text("3 hr average PSI Reading by NEA 1 - 2 July 2013");
+                .text("3 hr average PSI Reading by NEA 4 - 5 July 2013");
               
           var sel = svg.selectAll(".bar")
             .data(data).enter();
@@ -259,17 +259,8 @@
               }else{
                 return "660000";
               }});
-        
-		/*
-		green	00FF00
-		yellow	FFFF00
-		orange	E69400
-		red		B80000
-		purple	7B307B
-		
-		*/
-		
-        sel.append("text")
+		   
+		sel.append("text")
            .attr("x", function(d) { return x(d.time); })
            .attr("y", function(d) { return y(d.PSI)- 5; })
            .attr("font-size", "11px")
@@ -297,8 +288,7 @@
           });
     
         
-</script>
-
+  </script>
   
         <div id="wrap">
     <div class="container">
@@ -318,7 +308,7 @@
                         <div class="row-fluid">
                           <div class="span12">
                           <div id="chart_div_d3" style="width: 1000px; height: 420px;"></div>                                      
-                          </div>  
+                          </div>						  
                         </div>
                         
                         <div class="row-fluid">
@@ -408,6 +398,10 @@
 				  </table>			      
 				  * <a href="http://www.airnow.gov/?action=aqibasics.aqi">Reference for color</a>.				
 				  
+				  <br>
+				  
+				  <a href="#" id="blob" class="btn large primary" rel="popover" style="margin-top: 300px">hover for popover</a>
+				  
 				</div>
 				
 				<div class="span6">
@@ -465,5 +459,11 @@
         ga('create', 'UA-41856482-1', 'psichart.com');
         ga('send', 'pageview');
       </script>
+	  
+	  	<script type="text/javascript">
+var img = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
+
+$("#blob").popover({ title: 'Look!  A bird image!', content: img });
+</script>
   </body>
 </html>
