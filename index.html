@@ -147,9 +147,9 @@
           var data_to_bar = new Array();
                 
           for (var data_key in jdata['data']) {
-            data_key_array.push(data_key);							   
+            data_key_array.push(data_key);
           }
-                
+		  
           for (var i=0;i<22;i++) {            
             data_to_bar.push({"time":jdata['data'][data_key_array[data_key_array.length-22+i]]['updated_at'],
                               "PSI":jdata['data'][data_key_array[data_key_array.length-22+i]]['psi'],
