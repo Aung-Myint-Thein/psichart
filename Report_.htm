@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Analyzing the Business Value of IT in Organizations</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Analyzing the Business Value of IT in Organizations</h1>
+
+<h2>Case Study: Digitized Platforms, Cloud Reliance and Business Agility</h2>
+
+<p>Research for analyzing the business value of IT usually relies on survey firm-level data that includes questions about uses of IT, measurements of factors that strengthen IT capabilities and measurements of firm performance.</p>
+
+<p>The research process involves a series of steps for ensuring rigour before and after data collection. This case study presents basic data manipulations and statistical analyses once the data is collected. We use the program R.</p>
+
+<p>The survey targeted C-level executives of companies in three regions: North America, West Europe, Asia Pacific.The survey was administered between mid-September, 2012 through mid-January, 2013. A total of 4,872 respondents received the survey; 372 completed the survey. We then tested the responses in order to ensure high quality. The results in this case study are based on the cleaned set of completed surveys, consisting of 307 completed surveys</p>
+
+<p>The survey contains more that 100 variables. In this case study, we will be working with a subset of indicators. </p>
+
+<h3>STEPS</h3>
+
+<h4>Step 1. Load full dataset</h4>
+
+<p>Download full dataset into your folder. </p>
+
+<p>Set that respective folder as the working directory, for example:</p>
+
+<pre><code class="r">setwd(&quot;C:/GIT_R/eLab_R/Paper Digitized&quot;)
+</code></pre>
+
+<p>Given that the dataset is in CSV format (i.e. a &ldquo;foreign&rdquo; format to R), we need to import the data into R:</p>
+
+<pre><code class="r">library(foreign)
+ds_full &lt;- read.csv(&quot;ds_full.csv&quot;, header = TRUE)
+</code></pre>
+
+<p>Since we will be working with a subset of all the variables contained in the original dataset &ldquo;ds_full&rdquo;, we have to extract those indicators and create a &ldquo;sample&rdquo; dataset that we called &ldquo;dsample&rdquo;&ldquo;</p>
+
+<pre><code class="r">dsample &lt;- ds_full[, c(&quot;rid&quot;, &quot;s1f&quot;, &quot;s1g&quot;, &quot;s2&quot;, &quot;q22_1_2&quot;, &quot;q24_1&quot;, &quot;q24_2&quot;, 
+    &quot;q24_3&quot;, &quot;q24_5&quot;, &quot;q24_6&quot;, &quot;q39_10&quot;, &quot;q39_1&quot;, &quot;q39_2&quot;, &quot;q39_3&quot;, &quot;q24_8&quot;, 
+    &quot;q39_7&quot;, &quot;q39_8&quot;, &quot;q39_9&quot;)]
+</code></pre>
+
+<p>We can have an idea of how the data looks like by calling a function that shows the first few rows of the Data Frame:</p>
+
+<pre><code class="r">head(dsample)
+</code></pre>
+
+<pre><code>##               rid s1f s1g s2 q22_1_2 q24_1 q24_2 q24_3 q24_5 q24_6 q39_10
+## 1 019, Respondent  14   4  1      10     4     4     4     2     2      4
+## 2 039, Respondent  12   7  1      50     2     4     4     4     4      4
+## 3 006, Respondent  12   3  1      10     3     4     4     4     4      4
+## 4 053, Respondent  12   1  1       1     4     4     4     3     2      3
+## 5 061, Respondent  12   1  3       5     2     4     4     4     3      3
+## 6 066, Respondent  12   1  3      40     4     4     4     4     3      3
+##   q39_1 q39_2 q39_3 q24_8 q39_7 q39_8 q39_9
+## 1     3     2     4     4     4     4     4
+## 2     3     4     3     5     4     4     4
+## 3     4     4     4     5     3     4     5
+## 4     3     3     4     3     3     3     3
+## 5     4     4     4     4     3     3     3
+## 6     3     3     4     4     4     4     3
+</code></pre>
+
+<h4>Step 2. Basic Data Demographics</h4>
+
+<p>Usually the empirical work requires &quot;controling&rdquo; for some firms characteristics. Two important controls in our sample dataset are: </p>
+
+<h5>Firm Size</h5>
+
+<p>This is captured using a variable (s1g) that creates different categories of the size of the workforce, giving then numerical names (between 1 and 6 in this case):</p>
+
+<p>\[ 
+1:	<50
+ \]
+\[ 
+2:	50 - 249
+ \]
+\[ 
+3:	250 - 999
+ \]
+\[ 
+4:	1,000 - 9,999
+ \]
+\[ 
+7:	10,000 - 49,999
+ \]
+\[ 
+5:	50,000 - 99,999
+ \]
+\[ 
+6:	>100,000
+ \]</p>
+
+<p>*Note: the codes (1-6) are not necessarily in order but they are just names (i.e. nominal data)</p>
+
+<p>The frequency of each category (i.e. the number of observation for each category), can be visualized using an histogram:</p>
+
+<pre><code class="r">hist(dsample[, c(&quot;s1g&quot;)], main = &quot;Number of firms in the Sample according to size&quot;, 
+    xlab = &quot;Workforce Size Categories&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAqFBMVEX9/v0AAAAAADkAAGUAOTkAOWUAOY8AZo8AZrU5AAA5ADk5AGU5OQA5OWU5OY85ZrU5j485j9plAABlADllAGVlOQBlOTllOY9lZgBlZjllZmVltbVltf2POQCPOTmPOWWPZgCPj2WPtY+P27WP29qP2/21ZgC1Zjm1tWW124+1/rW1/tq1/v3ajznatWXa24/a/rXa/tra/v39tWX924/9/rX9/tr9/v2NPvvKAAAAOHRSTlP/////////////////////////////////////////////////////////////////////////ADtcEcoAAAAJcEhZcwAACxIAAAsSAdLdfvwAABCXSURBVHic7Z17g+K2FUfDbLJhss2D2TzaBjZtmiFNOrTJ8vr+36yWn9LAwGVkfPG95/yxMP5hW+ggWWZt9MkeXPKJdgFAB8Q7BfFOQbxTEO8UxDsF8U5BvFMQ7xTEOwXxTkG8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFMQ7xTEOwXxTkG8UxDvlAHEbx8m8/1+t3jzdDR+MUjY3E/uHpsn/3o4t8r28BXL+Yu7Kko4efvx4i3K2T68/XhqA0XZ+t/paYYRX9RqpvjlZP7syYWE9V7YVfA+mUxPr58t/kzZhmYY8ZNZWellxYdKWE8+X0zePK0mlY1/1w2u+LvqHO7+VrfvclFYeVK9pHryx0PYVnjRP6MNhc5gUtvZlq8IG64WlOtNiyW/3VdL6l2VbO7r9rguFhb7PSxdWeywXrxa/epy2yFrHusyN28jLP6xbvFdkYqlb36vPg5V2drV6iK1Ow27KYN43/kMIv7NXyvpkfiGsLB8UtTBsn6LreZ9vWh6VHx49t9oQ1XDrdbbPrQbLltyI75Z0uyqpKjlebVStYGjpSvFx6s1r65e0byyfdG0Luuf8QbaApRPPr2PxTerxdtuxT/bdw8MI/63+9kz8W+eQnVvH8oWMduHJ6Hh1R1D0+9u7osmFbK0q6/rcBpaXbehzX3Xn9avmBUvqBdWXX2xJLys3VUZlTUfdRVHShf+CAufHbOqhaWVefdYl7kqYbl41YmvitQubcvWvdV91Qc129+Htj7fH+w7k2HEPy3vfknFT2s3oX7Cmynee93QwpK6n9+vy09AeN9HxIcXxRsqm0nS1ZdVmYivl7S72jcbrdYMmwjin5duNZl1vW67WvPqWV3WWVrmroTt4C4qwHSflq17q/WWu+PL5n5aHVjiIucykPjtw+eH4kM32Yv4akPlgbGumfqA+vRcfHqoiWoxtPBy/VZ8XLpj4uNXd2U9Jz6qgBPim7dSiq+KMFLxYWRS9nTzsoNLqzbu6gOd+JNd/YH4Jt6fFR8fFUJtl0f9+ao8EDwX/7yr79aqXl332rPuse3qQ5medfVtAU529c3Suurm+67374uhxIdRbDNAORCfDO4ii/tuxCMQ3zTBZp/PxZej+npJs6sy6trusRZ/OLirVmtefWJw14z5o8FdXYB4cFeVLRncNSWqPm2TaPDXm/2hxJfDsPLY9eNhV9+czi2rdxaJb89xpF19veah+CIsRtjtkmVcic2KxcLZKhxzjpSuehfxavWryyflbpvH7nQu/BUcf/O8qw810ZzOVWX7eHA6V/YA5VnlpD0T6a/V85XtaXocRx+w7tHjxSD+NFcSX52o93dWfjmIP821Wvy6O6DrgHinIN4piHcK4p2CeKcg3imIdwrinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIdwrinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIdwrinYJ4pzgSPzmHdgEHxZP4zNwWiBfntkC8OLcF4sW5LRAvzm2BeHFuC8SLc1sgXpzbAvHi3BaIF+e2QLw4twXixbktEC/ObYF4cW4LxItzWyBenNsC8eLcFogX57ZAvDi3BeLFuS0QL85tgXhxbovz4qtJbSfXm2lzKBAfc1b8blHN5rtWnAe1HxAfc1b89tun5HG8ID6GFi/ObXH+GF9PfMwx3haM6sW5LRAvzm3B6Zw4twWDO3Fui9eczo30hnLEx+S0+JHVFOJjck7nRlZTiI/JGdWPrKYQH4N4cW4LxItzWyBenNvi/OncQ33udji6G1lNIT7mfIvfLWYvJCOrKcTHCLr67fvH48HIagrxMRzjxbktEC/ObYF4cW4LxItzWyBenNsC8eLcFogX57ZAvDi3BeLFuS0QL85tgXhxbgvEi3NbIF6c2wLx4twWiBfntkC8OLcF4sW5LRAvzm2BeHFuC8SLc1sgXpzbAvHi3BaIF+e2QLw4twXixbktEC/ObYF4cW4LxItzWyBenNsC8eLcFogX57ZAvDi3BeLFuS0QL85tgXhxbgvEi3NbIF6c2wLx4twWiBfntkC8OLcF4sW5LRAvzm2BeHFuC8SLc1sgXpzbAvHi3BY5M02OrKYQH8O8c+LcFq+ZabJhZDWF+BhavDi3BTNNinNbMKoX57Z4jXhmkzaA6HRuuqKrt8b5wd2Hx/1qWvj/isGdJUSnc6sZp3PWoMWLc1uIjvEzjvHm4HROnNsC8eLcFogX57ZAvDi3BeLFuS0QL85tgXhxbgvEi3NbIF6c2wLx4twWiBfntkC8OLcF4sW5LRAvzm2BeHFuC8SLc1sgXpzbAvHi3BaIF+e2QLw4twXixbktEC/ObYF4cW4LxItzWyBenNsC8eLcFogX57ZAvDi3BeLFuS0QL85tgXhxbgvEi3NbIF6c2wLx4twWiBfntkC8OLcF4sW5LRAvzm2BeHFuC8SLc1sgXpzbAvHi3BaIF+e2QLw4t0UlfvswfcW6I6spxMc0LX49mdw9XrjuyGoK8TFRV79bTCbzS9YdWU0hPqYRv7kPLf7INBQnGFlNIT6mOcYfTid4npHVFOJjGNWLc1vU4tfF0X116ehuZDWF+Ji6q38fnG/eHTvCM424SSrx1czBR+YNZlJhq9RdfTlz8JFGzTTiVmEacXFuC6YRF+e2aEf1L8g9xchqCvExzRc4l3xXqzSN+OQc59bPzG1Riz/xVe3mfh6+xT8y4h9avHJui7qrX85eekEY3C3ntzCpMOL7pOnqXzzGF51BmFD6Bk7nEN8n50f1RXNfF/3B+vBSDcSPGMF/0izL3uDIJTqIHzG1+GL49vaP97f9nzSI75Pmu/pZMXg7+l39CRA/YtrTuUL8ZdffIH7UxC1+RYv3Q3eMP/odzUkQP2JGdOkV4vsE8eLcFme/uTsB4kdM3OJXL35hfxzEj5hYPKdzjojFr+nq/ZAc4y+6cw7xo4ZRvTjXJvcKpBTEi3Nt+i1/0tVfeEKH+EG5hvj9atr802NJegbxeXlKfLElp3M3zTXE7xbhuxta/E1zla6+/N+5S38ACfGDchXxrwLxg4J4pVyba3X1XGx5QVk0uNLgjostPYrnYktBrs31WjwXW9401zud42LLm4ZRvVKuzfW+su27JD2D+Lw8pT7Gf7j0l6sv31M2iM/LU7jKVpxrwzFeKdcG8Uq5Nv2Lf93QDvEDcx3xR37bKLskPYP4vDwF8eJcG8Qr5dpcQfyrrrFF/MAwqlfKtUG8Uq4N4pVybRCvlGuDeKVcG8Qr5dogXinXBvFKuTaIV8q1QbxSrg3ilXJtEK+Ua4N4pVybocXfzGzSiM/LU0Y0tyzi8/KUs+JvZzZpxOflKbR4ca7N0Mf4m5lNGvF5eQqjenGujb54rdmklXNtVMRv3h25DhPxgzL0qP7lS3ARPyjDD+4K5X20+Nyf3dbOtRm+q98+vP1fH+JHnmujcYzf3B+71wLxg6I/qn/dntTFIT4G8eJcG8Qr5dogXinXBvFKuTaIV8q1QbxSrg3ilXJtEK+Ua4N4pVwbxCvl2iBeKdcG8Uq5NohXyrVBvFKuDeKVcm0Qr5Rrg3ilXBvEK+XaIF4p1wbxSrk2iFfKtUG8Uq4N4pVybRCvlGuDeKVcG8Qr5dogXinXBvFKuTaIV8q1QbxSrg3ilXJtEK+Ua4N4pVwbxCvl2iBeKdcG8Uq5NohXyrVBvFKuDeKVcm0Qr5Rrg3ilXBvEK+XaIF4p1wbxSrk2iFfKtUG8Uq4N4pVybRCvlGuDeKVcG8Qr5doMLb63acS1xSE+ZsBJhbXFIT5mwGnEtcUhPoYWL861GfoY39s04triEB/DqF6ca6Mv/pXTiGuLQ3yM6HTu7pHBnT4Kg7vdYoZ4dVRO55ZTxGujczq3+vRwInHED8rwp3Oz8LA6PJ9D/KDoj+pftyd1cdn5Oa69fmaegng3eQri3eQpiHeTpyDeTZ6CeDd5CuLd5CmId5OnIN5NnoJ4N3kK4t3kKYh3k6cg3k2egng3eQri3eQpiHeTpyDeTZ6CeDd5CuLd5CmId5OnIN5NnoJ4N3kK4t3kKYh3k6cg3k2egng3eQri3eQpiHeTpyDeTZ6CeDd5CuLd5Ck9ite+DZj8EvoUf9nLyQfOUxDvJk9BvJs8BfFu8hTEu8lTEO8mT0G8mzwF8W7yFMS7yVMQ7yZPQbybPAXxbvIUxLvJUxDvJk9BvJs8BfFu8hTEu8lTEO8mT0G8mzwF8W7yFMS7yVMQ7yZPEU0xKptNWvuNkV9Cj/PHa78x8ksQTjGaTCr8wh0SZ2+ogOvSr/gTLR5GjGSK0fLjdOQYDyMmZ1QPIwbxTkG8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFN6FK/8f1OgJp71R7Q+4p2uj3in6yPe6fqId7o+4p2uj3in6/MFjlMQ7xTEOwXxTkG8UxDvFMQ7BfFOQbxTEO+U/sRv3uXcTxt+d2Oesf46+37e5n7w17Ga5BVgt5jcPebt/rIK7E38Out9b98/7jdfvP6dh0/davr6/e9D3eWIX+asXK2f+wsEl63fl/jl3c85LX4dpGVWXmaX8+V3Gbvffchorvvk90ZevYn3FxXhVrr6/cUlPyCrxe8+/JLT1Ze/HpGx/uarf2R19fuL3/7tiN8tZlm7v8+quNUs6xgfDlM5rX5zPy/k53T1lzabmxG/fcjyvs/rMYpKzxvcBTIOVUF6Xo936QjhVsSHj3wuGRVfjYozP3oZ+9/+kCt+eWHhb0R8rvfwec8cI2S1+LD/3U8ZFbDM7OovPs7ciPjLz0MPN5A5OMo+j8/afzE6zPoe4uJPPd/cOQXxTkG8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFMQ7xTEOwXxTkG8UxDvFMQ7BfFOQbxTEO+U8YsPFzWvw3Wa6/hWkuqq093i5CXT4f6XN09HLxNdTyaT7kr1UxeSZt9BpMP4xa8Ktau/z6onLZX401K2D8XHZXX0RoRVuOR12UYjlXuK8YsPN8F8+Dn881hfpLz58rs3//nwuFt8ej+5e+yWPRVP7x67K5lLndv3j8Xjsmjg0y6pLlYOF1yXt2+Xy+uwePjs+3hPvxVbqbP8e7WHY/zit98+bX/486encMPpchZubQh3ZxQfg+KPoDZatijvRS4WVDcY7hZVky4/AOFz0ybt/Ujl7dvvnurthDBs7u4x2mqXhRJk3qs9HOMXXxjbfF0c6Yt/Qs1XLbhY+pdZqTRaVnXYwWVzV/K6vA2iXF4cKLokGS4Ui8J2qjDkxR7TrTZZ5u2+gzJ+8fvVfFW05NmqauDhcxAeFt/88LFprPWy6h6l8o7m7q6XzRdt1iXR3UzL0H0HuVUYkmYXH1rx9Yqb+9zbeYbDgPj19Neizr/+9TFt8Y/VJ+Gwxbe/QVC166KvePdUjgW7pD3Gh/Ff9empw+MtvvtZg9yftRgMA+K335et8MunfXPkrcTXLTJatigtVgv29ai+0ledEbRJO6ovzX4RbefZMb7+OFV/hRjxw7FblL+jEv6px9qV+OKxG3FXI/hmVF93yKGLLo/xvz+Ud0l3SXsev5pMPvtuvls0pwRhnc+784dafJ0tGdWbxsRZPeIvY7fIvh/7NkC8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFMQ7xTEOwXxTkG8UxDvFMQ7BfFO+T8yd7/w7xxbZwAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-5"/> </p>
+
+<h5>Firm Industry</h5>
+
+<p>The industry variable (s1f) creates different categories and also gives numerical names to those categories (note: the number are only names and may not be in order):</p>
+
+<p>\[ 
+1:	  Agriculture, forestry and fishing (A)
+ \]
+\[ 
+2:	  Mining and quarrying (B)
+ \]
+\[ 
+3:	  Manufacturing (C)
+ \]
+\[ 
+4:	  Electricity, gas, steam and air-conditioning supply (D)
+ \]
+\[ 
+5:	  Water supply, sewerage, waste management and remediation (E)
+ \]
+\[ 
+6:	  Construction (F)
+ \]
+\[ 
+7:	  Wholesale and retail trade (F)
+ \]
+\[ 
+8:	  Transportation and storage (G)
+ \]
+\[ 
+9:	  Accommodation and food service activities (I)
+ \]
+\[ 
+10:	Publishing, audiovisual and broadcasting activities (JA)
+ \]
+\[ 
+11:	Telecommunications (JB)
+ \]
+\[ 
+12:	IT and other information services (JC)
+ \]
+\[ 
+13:	Financial and insurance activities 
+ \]
+\[ 
+14:	Real estate activities (L)
+ \]
+\[ 
+15:	Legal, accounting, management, architecture,engineering, .. activities (MA)
+ \]
+\[ 
+16:	Scientific research and development (MB)
+ \]
+\[ 
+17:	Other professional, scientific and technical activities (MC)
+ \]
+\[ 
+18:	Administrative and support service activities (N)
+ \]
+\[ 
+19:	Public administration and defence, compulsory social security (O)
+ \]
+\[ 
+20:	Education (P)
+ \]
+\[ 
+21:	Human health services, residential care and social work activities (Q)
+ \]
+\[ 
+22:	Arts, entertainment and recreation (R)
+ \]</p>
+
+<p>We can also generate an histogram. However, some of these categories only have few observations. Let&#39;s see:</p>
+
+<pre><code class="r">library(gmodels)
+</code></pre>
+
+<pre><code>## Warning: package &#39;gmodels&#39; was built under R version 3.0.2
+</code></pre>
+
+<pre><code class="r">dsample$ones &lt;- 1  #This variable is useful for generating the table
+CrossTable(dsample$s1f, dsample$ones, digits = 2)
+</code></pre>
+
+<pre><code>## 
+##  
+##    Cell Contents
+## |-------------------------|
+## |                       N |
+## |         N / Table Total |
+## |-------------------------|
+## 
+##  
+## Total Observations in Table:  307 
+## 
+##  
+##              | dsample$ones 
+##  dsample$s1f |         1 | Row Total | 
+## -------------|-----------|-----------|
+##            1 |         2 |         2 | 
+##              |      0.01 |           | 
+## -------------|-----------|-----------|
+##            2 |         3 |         3 | 
+##              |      0.01 |           | 
+## -------------|-----------|-----------|
+##            3 |        33 |        33 | 
+##              |      0.11 |           | 
+## -------------|-----------|-----------|
+##            4 |         3 |         3 | 
+##              |      0.01 |           | 
+## -------------|-----------|-----------|
+##            5 |         1 |         1 | 
+##              |      0.00 |           | 
+## -------------|-----------|-----------|
+##            7 |        15 |        15 | 
+##              |      0.05 |           | 
+## -------------|-----------|-----------|
+##            8 |         7 |         7 | 
+##              |      0.02 |           | 
+## -------------|-----------|-----------|
+##            9 |         1 |         1 | 
+##              |      0.00 |           | 
+## -------------|-----------|-----------|
+##           10 |         6 |         6 | 
+##              |      0.02 |           | 
+## -------------|-----------|-----------|
+##           11 |        23 |        23 | 
+##              |      0.07 |           | 
+## -------------|-----------|-----------|
+##           12 |        72 |        72 | 
+##              |      0.23 |           | 
+## -------------|-----------|-----------|
+##           13 |        48 |        48 | 
+##              |      0.16 |           | 
+## -------------|-----------|-----------|
+##           14 |         5 |         5 | 
+##              |      0.02 |           | 
+## -------------|-----------|-----------|
+##           15 |         5 |         5 | 
+##              |      0.02 |           | 
+## -------------|-----------|-----------|
+##           16 |         4 |         4 | 
+##              |      0.01 |           | 
+## -------------|-----------|-----------|
+##           17 |         7 |         7 | 
+##              |      0.02 |           | 
+## -------------|-----------|-----------|
+##           18 |         2 |         2 | 
+##              |      0.01 |           | 
+## -------------|-----------|-----------|
+##           19 |         4 |         4 | 
+##              |      0.01 |           | 
+## -------------|-----------|-----------|
+##           20 |        14 |        14 | 
+##              |      0.05 |           | 
+## -------------|-----------|-----------|
+##           21 |        29 |        29 | 
+##              |      0.09 |           | 
+## -------------|-----------|-----------|
+##           22 |         7 |         7 | 
+##              |      0.02 |           | 
+## -------------|-----------|-----------|
+##           23 |        16 |        16 | 
+##              |      0.05 |           | 
+## -------------|-----------|-----------|
+## Column Total |       307 |       307 | 
+## -------------|-----------|-----------|
+## 
+## 
+</code></pre>
+
+<p>Therefore, in order to see the histogram, we will group some of the categories with fewer observations into one generic &ldquo;Other&rdquo; category. The industries with more observations are 3, 11, 12 and 13. We will put all the rest in a category &ldquo;other&rdquo; and give it the name &ldquo;25&rdquo;. The commands below creates a variable in the dataset that is similar to s1f but recodes the categories in order to include the new &ldquo;Other-25&rdquo; category. The code also renames the industry groups in the new variable from numbers into text descriptions: </p>
+
+<pre><code class="r">dsample$s1f_other &lt;- ifelse(dsample$s1f == 3 | dsample$s1f == 11 | dsample$s1f == 
+    12 | dsample$s1f == 13, dsample$s1f, 25)
+
+# Re-label into text (industry description):
+
+dsample$s1f_other &lt;- factor(dsample$s1f_other, levels = c(3, 11, 12, 13, 25), 
+    labels = c(&quot;Manufacturing&quot;, &quot;Telecom&quot;, &quot;IT&quot;, &quot;Finance&quot;, &quot;Other&quot;))
+</code></pre>
+
+<p>Now we can plot the histogram using the new created variable (the command &#39;barplot&#39; is similar to &#39;hist&#39; and it is useful when the categories are string data):</p>
+
+<pre><code class="r">barplot(table(dsample[, c(&quot;s1f_other&quot;)]), main = &quot;Number of firms in the Sample according to Industry&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAtFBMVEX9/v0AAAAAADkAAGUAOTkAOWUAOY8AZo8AZrU5AAA5ADk5AGU5OWU5OY85Zo85ZrU5j485j9plAABlADllAGVlOQBlOTllZgBlZjllZmVlZrVltbVltf2POQCPOTmPOWWPZgCPZo+Pj2WPtY+P27WP29qP2/21ZgC1Zjm1jzm1tWW124+1/rW1/tq1/v2+vr7ajznaj2XatWXa24/a/rXa/tra/v39tWX924/9/rX9/tr9/v1U8LCMAAAAPHRSTlP//////////////////////////////////////////////////////////////////////////////wC7iOunAAAACXBIWXMAAAsSAAALEgHS3X78AAAPe0lEQVR4nO2dC3vjxBlGUbIsDiktDsulxYEWaNyy4LoFNhf///9Vzeg6si17NCNpnPec5wE7kubTqzkeXfxsMh/tQJKP5g4A84B4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEizKK+Oe7bLXbvdxfbw6uPrrC4ekmu3qo3vx0d6rJ8/4W69XRXeUJs7cfvCuez/Pd2w99BfJsJ3ZmKpzRcChjic9DB4pfZ6vOG09MuyO7Mt6zbNHfPlj8iWwndna4wtDO2GMs8dnSdrrteHMIj9kn99n1ZpsVNn4uB1z+c3FyuPqmHN92kWmcFZsUb36/M7XMRj+0CpmTQVZ22LPdwhQuFth2i3zJ+5tiSbkry9NNOR4f84X5fvfT2dimXbtZubWtbdZVr2Xm6jDM4m/LEd9Eypde/1LILLLVzfbjVxXq7iuPtDqofDd2w8equT8jib/+upDeEl9Rxrda1/ZNS/OuXLQ4KN68+1+rUDFwi3bPd3VhO5KrPqqWVLuy5N24KhoVBQ6ms+Lbzaqtiy2qLeuNFmXWP9oF6gD2zZubtviq2V78OkLdfeWu/2gO6u2/80NYl4NlAGOJf3+z7Ii/3pjufr6zI2K5M2/MwCtPDNV59+kmPxazzj3Vl/2yMKOuKfR005wNyy2W+QblwuJUny8xm9W7sqts17VOFQfSmR/Mws41q1hoZa+a1zJzkdAu3jbii0j10jpbc6jd+PW2dffVR1oelN3N4rxr5mHGEr9ZX/3TFb8oD870j8mbH0I50MyS6qP7aD8BW/Np3hdvNmoXsuPAOdXbrnT6qFxS72pXFS1amhJGfDfdNlsWnwinWbX1ssy6dDM3Ceubu1aAxc7N1hxqN369rTviy14rDir/f34ePHGb0sNo4p/vPtkXbw4liviikL3yZe0hU10Sq3bdS03r1GhGuG1fi2+nOyS+vXWT9ZT4VgecFN/d1r3GZ+V5sOyt7dWPN4Mv8eOJN3cu9uy1sictt2vbp3pDI773VL8nvlq9Oym+fVUwvW2v+qutvRB0xXdP9U2rYuvyTLxsXutTvcnUOdXXAc441Xe3rbuvbtQSXz/vDmI88eYutrrv2RPv3Ny1LO6aO54zxFdDsNpnV3y2aJZUu7KrmrF7aMTv39wVzaqte27uqnv+1s1dGaB9c1dkO3Bz197W6aD6SIuDsr2Vb3Xqq4gexhNvb8PsVfHb/VN99Ti3Lo6vJb5+xjn3VF+23Befr8xvg+sl66z1nU3VMF+43JprzoF0xVG0m5Vb2zd2t9Vr8zhXGsk+757qTU9Uj3NFtg8HHufKbasKdffVgYuDKo55feqbiD74yrZLyK3yKR5Dxuge25AvcxDfZSTxxZP48C9c9gkLivguY434x+aCHoVtFjLgEa8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxiZCF47U/xCdC9p9QEH+RIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuSnvjiDydn4/2BVzAkJ/7lvvjDmY8x//wu7JGc+Od3G+cVxiE58Yz4aUhOfPX3trnGj0t64mESEC9KeuLLyY64uRuX5MSbm7uX+yXiRyY58YXw9aIlftivZ0IvyYkvH+e2b273RjziI5Kc+Pxxzs6ctN1/nkN8RNIT35M1oC10QLwoiBcF8aIkJ778qv7Ql/WIj0hy4u23N0eyeu0JeklP/O75iyPT0yM+IgmKP541oC10QLwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi5Ke+OMTDiI+IsmJ75l+DPERSU58z4SDiI9IcuIZ8dOQnPieCQcRH5H0xPdkDWgLHRAvSnrieZybhOTEc3M3DcmJP/A4x4SDI5CceEb8NCQnnse5aUhPfE/WgLbQAfGiIF4UxIuSnHgmHJyG5MQz4eA0pCeeCQcnIUHxx7MGtIUOiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFSU88c9JMQnLimaFiGpITzxSj05CceEb8NCQnnjlppiE98T1ZA9pCh0sQz7xzI5Ce+PxxbrHlVD82yYl/+e5ht13k/j/j5m5MkhNvHuO2Sx7nxiY58Yz4aUhOvLnGL7nGj0564nuyBrSFDogXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUH8WGThjBoP8SMxdc8mHg/xiPfPGtB2ehDvgHjE+2cNaDs9iHdAPOL9swa0nR7EOyAe8f5ZA9pOD+IdEI94/6wBbacH8Q6IR7x/1oC204N4B8Qj3j9rQNvpQbwD4hHvnzWg7fQg3gHxiPfPGtB2ehDvgHjE+2cNaDs9iHdAPOL9swa0nR7EOyAe8f5ZA9pOD+IdEI94/6wBbacH8Q46884h3kFnFirEO+jMO4d4B0Y84o/wWuadQ7wDd/WIPz/jRc47h3iHcx7nVi/3WbZ/iWfEX3K8s27u1qtXMAsV4h3OeZwzM5DxOKcm3gz3x2X+OLfYz+q1p7lBvMMZN3dreyO37x3xlxyPxznE+2cNaDs9iHdAPOL9swa0nR7EOyAe8f5ZA9pOD+IdEI94/6wBbacH8Q6IR7x/1oC204N4B8Qj3j9rQNvpQbwD4hHvnzWg7fQg3gHxiPfPGtB2ehDvgHjE+2cNaDs9iHdAPOL9swa0nR7EOyAe8f5ZA9pOD+IdEI94/6wBbacH8Q6IR7x/1oC204N4B8Qj3j9rQNvpQbwD4gf2bBbOmPFOgvih4iOLQvxYIN4B8QN7FvGXAuIdED+wZxF/KSDeAfEDexbxlwLiHRA/sGcRfykg3gHxA3sW8ZcC4h0QP7BnEX8pIN4B8QN79vWLZ965gz376sUzC9Xhnn314pl37nDPvnrxjPjDPfvqxTPv3OGeff3ie7oyoO30IN6BeecG9qyI+Kfb/TM9Iz6mqOTEl5f4Qxd5xEcUlZz43HyunBHf7dnXL96of/sb4gXFm69tDzzNIT6mqDTFH+nKgLbTg3gHxA/sWcRfCoh3QPzAnkX8pYB4B8QP7FnEXwqId0D8wJ5F/KWAeAfED+xZxF8KiHdA/MCeRfylgHgHxA/sWcQ3P0b+W4+RQbxDTPETR/dNGzce4meL7ps2bjzEzxbdN23ceIifLbpv2rjxED9bdN+0ceMhfrbovmnjxkP8bNF908aNh/jZovumjRsP8bNF900bNx7iZ4vumzZuPMTPFt03bdx4iJ8tum/auPEQP1t037Rx4yF+tui+aePGQ/xs0X3Txo2H+Nmi+6aNGw/xs0X3TRs3HuJni+6bNm48xM8W3Tdt3HiIny26b9q48RA/W3TftHHjIX626L5p48ZD/GzRfdPGjYf42aL7po0bD/GzRfdNGzce4meL7ps2bjzEzxbdN23ceIgfK3qEX8Ub0xTix4oeXm5UU69f/NnzziXXs4jvIeIsVMn1LOJ7iDjvXHI9i/geGPFplEtP/PnzziXXs4jvgbv6NMpdhPgjf7ImuZ5FfA9nPc5dPXBzN3K59MSbm7uX+yXi1cQXwtcLxIuJLx/ntm/2Z55DfLxy6YnPH+eW5mV7corR5HoW8T3wOJdGOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/geEJ9GOcRHLIf4HhCfRjnERyyH+B4Qn0Y5xEcsh/gemFs2jXLpiWemyUnKpSf+wNyyx+adizzfe3r1RiwXvd4pQkY8XDAhc8vCBRNyVw8XDOJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoUcQ/3Szy/6+P/LO8l/ts6Wx9uzn60+Hmhurfep7cfghPt7+6e/FrbX/zYBk/2TYvu7KHHL92HPGf/vnD7vmrI+G6of0Pot1iJPGbgMqjRMrZ5h/D57tlyuJvv3nYPf01D2c+/Kvd02d/ty9mwe0vd9nVQ7Hc/Ivdq5/usuv3ds3m6U9fmrfl5mbtx189HKxvDjtffW2ble9stYfyh5fvfsgH3WPmnlzOP4AI4p+aI3G6wcnpQfGbDLYD8176uipl+iDvt9APQiTxP692//3xdvP8xYM9/pul+Xf4T6Xeern5N/qPb38rPsB2u1Vr8906f7k6Lj5fvV3Y98W7otqHtW38cr+wV5xh9qKJL47E7YYm53bhU7b4TYa8tdtFpg9uVsOStogk/v1fXr5/Xxx//kFtjLdOU+XyXWdN82I+4S/fHRVverOo0bwryppVpqH5z6wbcgBB4s01ftE6kv1uqON7lH0sPibrVauL2kceRiTxv/7j97/ZOGvzqxcHxBfLP/uwOy7erO0Tb36xI79o5IdfvquqmVazim9GfCXe6QabswztUbYQX474UnzdB8OStogkfvOvH5Y22Oqg19by4SP+XdW9zbtdGiO+K36/G3aeo323a67xG7eLdgFJW8QS/2g/hzbfpw+tE9P2etMsN1e7/LLQXtMeJ6ev8eWNw7q+duY/lT+kJN7tBienT928h9p39c2RpyS+DJc/eX785aqKmf/0+bvW8uL+9uX+etOsaR1VvvaT4yO+vDkuNzQfEPeuPiHxnW6oc3qd6XMei+f4vMPeO6WSER+PGIcE55CQePMVne+YgKEkJB6mBPGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFH+D9GIFtj09ew0AAAAAElFTkSuQmCC" alt="plot of chunk unnamed-chunk-8"/> </p>
+
+<h4>Step 3. Generation of new variables</h4>
+
+<p>The analysis requires the generation of Dummy variables for each category in firm size (s1g) and industry (s1f):</p>
+
+<h5>Firm Size (Intercept: &gt;50,000):</h5>
+
+<pre><code class="r">dsample$firm_size1 &lt;- ifelse(dsample$s1g == 1 | dsample$s1g == 2, 1, 0)  # &lt;50 &amp; 50-250
+dsample$firm_size2 &lt;- ifelse(dsample$s1g == 3, 1, 0)  # 250 - 1,000
+dsample$firm_size3 &lt;- ifelse(dsample$s1g == 4, 1, 0)  # 1,000 - 10,000
+dsample$firm_size4 &lt;- ifelse(dsample$s1g == 7, 1, 0)  # 10,000 - 50,000
+</code></pre>
+
+<h5>Industry (Intercept: &ldquo;Other&rdquo;&ldquo; sectors):</h5>
+
+<pre><code class="r">dsample$industry1 &lt;- ifelse(dsample$s1f == 11, 1, 0)  # Industry: Telecom
+dsample$industry2 &lt;- ifelse(dsample$s1f == 12, 1, 0)  # Industry: IT
+dsample$industry3 &lt;- ifelse(dsample$s1f == 13, 1, 0)  # Industry: Finance
+dsample$industry4 &lt;- ifelse(dsample$s1f == 3, 1, 0)  # Industry: Manufacturing
+</code></pre>
+
+<h4>Step 4. Descriptive Statistics</h4>
+
+<p>These are the basic statistics for firms&#39; reliance on Cloud-based services (variable: q22_1_2):</p>
+
+<p>*Note: some commands are based on packages generated by other people. Here, we first installed the &quot;psych&rdquo; package (run: install.packages(&ldquo;psych&rdquo;)) </p>
+
+<pre><code class="r">library(psych)
+</code></pre>
+
+<pre><code>## Warning: package &#39;psych&#39; was built under R version 3.0.2
+</code></pre>
+
+<pre><code class="r">describe(dsample$q22_1_2)
+</code></pre>
+
+<pre><code>##   var   n  mean    sd median trimmed   mad min max range skew kurtosis
+## 1   1 307 13.68 17.15     10   10.19 10.38   0 100   100 2.38     6.54
+##     se
+## 1 0.98
+</code></pre>
+
+<h4>Step 5. Empirical Analysis</h4>
+
+<p>It is possible to write equations (via LaTeX): </p>
+
+<p>There are inline equations such as: \( y_i = \alpha + \beta x_i + e_i \).</p>
+
+<p>We will continue with more&hellip;..</p>
+
+</body>
+
+</html>
+
