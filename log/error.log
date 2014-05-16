@@ -1,0 +1,33 @@
+[Thu Apr 24 16:15:40.255115 2014] [authz_core:error] [pid 15884:tid 140122662086400] [client 220.255.1.58:8576] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 16:15:42.238092 2014] [authz_core:error] [pid 15888:tid 140122678871808] [client 220.255.1.78:51375] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 16:15:43.935438 2014] [authz_core:error] [pid 15884:tid 140122653693696] [client 220.255.1.91:26667] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 16:15:51.224016 2014] [authz_core:error] [pid 15884:tid 140122678871808] [client 220.255.1.53:3831] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 16:15:52.053574 2014] [authz_core:error] [pid 15884:tid 140122704049920] [client 220.255.1.94:63692] AH01630: client denied by server configuration: /home/aung/public/psichart.com/favicon.ico
+[Thu Apr 24 16:15:52.520101 2014] [authz_core:error] [pid 15888:tid 140122662086400] [client 220.255.1.48:41616] AH01630: client denied by server configuration: /home/aung/public/psichart.com/favicon.ico
+[Thu Apr 24 16:19:06.802624 2014] [authz_core:error] [pid 15884:tid 140122645300992] [client 220.255.1.93:14471] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 16:21:50.677929 2014] [authz_core:error] [pid 15888:tid 140122781173504] [client 220.255.1.77:52734] AH01630: client denied by server configuration: /home/aung/public/psichart.com/index.html
+[Thu Apr 24 16:31:34.360528 2014] [authz_core:error] [pid 15888:tid 140122670479104] [client 220.255.1.43:6905] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 17:53:58.445311 2014] [authz_core:error] [pid 15884:tid 140122594944768] [client 202.176.202.134:38204] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Thu Apr 24 18:06:49.483502 2014] [authz_core:error] [pid 15888:tid 140122611730176] [client 66.249.70.230:34196] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 19:59:13.949195 2014] [authz_core:error] [pid 15888:tid 140122603337472] [client 150.70.173.53:53528] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Thu Apr 24 20:00:14.857221 2014] [authz_core:error] [pid 15888:tid 140122594944768] [client 150.70.172.108:37989] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Thu Apr 24 20:05:15.320995 2014] [authz_core:error] [pid 15888:tid 140122586552064] [client 66.249.70.195:50344] AH01630: client denied by server configuration: /home/aung/public/psichart.com/robots.txt
+[Thu Apr 24 20:05:15.371675 2014] [authz_core:error] [pid 15888:tid 140122578159360] [client 66.249.70.195:61397] AH01630: client denied by server configuration: /home/aung/public/psichart.com/home.html
+[Thu Apr 24 21:31:35.736073 2014] [authz_core:error] [pid 15888:tid 140122569766656] [client 117.173.187.41:37022] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Thu Apr 24 21:47:40.598756 2014] [authz_core:error] [pid 15888:tid 140122561373952] [client 166.121.37.18:60721] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Thu Apr 24 23:17:58.366669 2014] [authz_core:error] [pid 15888:tid 140122552981248] [client 157.56.92.150:51493] AH01630: client denied by server configuration: /home/aung/public/psichart.com/robots.txt
+[Thu Apr 24 23:18:58.709216 2014] [authz_core:error] [pid 15888:tid 140122544588544] [client 157.56.92.150:41194] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Fri Apr 25 00:04:57.033353 2014] [authz_core:error] [pid 15888:tid 140122536195840] [client 202.176.202.133:40020] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Fri Apr 25 00:34:00.639268 2014] [authz_core:error] [pid 15888:tid 140122527803136] [client 203.117.37.234:6699] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Fri Apr 25 00:34:01.355518 2014] [authz_core:error] [pid 15888:tid 140122519410432] [client 203.117.37.234:7227] AH01630: client denied by server configuration: /home/aung/public/psichart.com/favicon.ico, referer: http://psichart.com/
+[Fri Apr 25 00:35:58.082621 2014] [authz_core:error] [pid 15884:tid 140122603337472] [client 202.176.202.137:59007] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Fri Apr 25 00:44:40.434522 2014] [authz_core:error] [pid 15884:tid 140122611730176] [client 119.56.113.108:55930] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Fri Apr 25 01:02:20.665097 2014] [authz_core:error] [pid 15888:tid 140122695657216] [client 175.176.173.10:63509] AH01630: client denied by server configuration: /home/aung/public/psichart.com/
+[Fri Apr 25 01:02:21.128444 2014] [authz_core:error] [pid 15888:tid 140122687264512] [client 175.176.173.10:43409] AH01630: client denied by server configuration: /home/aung/public/psichart.com/favicon.ico
+[Fri Apr 25 01:02:21.321577 2014] [authz_core:error] [pid 15888:tid 140122653693696] [client 175.176.173.10:52122] AH01630: client denied by server configuration: /home/aung/public/psichart.com/favicon.ico
+[Fri Apr 25 01:16:20.414681 2014] [authz_core:error] [pid 15888:tid 140122670479104] [client 54.206.47.223:56329] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar, referer: https://www.google.com.sg/
+[Fri Apr 25 01:29:09.166310 2014] [authz_core:error] [pid 15888:tid 140122645300992] [client 173.252.100.119:41976] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Fri Apr 25 01:29:09.358792 2014] [authz_core:error] [pid 15888:tid 140122636908288] [client 173.252.100.113:61627] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar
+[Fri Apr 25 01:31:47.177512 2014] [authz_core:error] [pid 15888:tid 140122628515584] [client 82.193.99.33:56604] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar, referer: http://www.news3d.org/
+[Fri Apr 25 01:31:47.806906 2014] [authz_core:error] [pid 15888:tid 140122611730176] [client 82.193.99.33:56706] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar, referer: http://www.news3d.org/
+[Fri Apr 25 01:31:48.430963 2014] [authz_core:error] [pid 15888:tid 140122603337472] [client 82.193.99.33:56809] AH01630: client denied by server configuration: /home/aung/public/psichart.com/bar, referer: http://www.news3d.org/
