@@ -140,7 +140,7 @@
 <script>			
     $(document).ready(function() {
       $.ajax({
-        url: "http://54.227.251.208/psi/getpsi.php?callback=?",
+        url: "getpsi.php?callback=?",
         dataType: "jsonp",
         jsonpCallback: 'getPSI',
         success: function(jdata) {
@@ -149,13 +149,14 @@
 		  var chart_title_date = "";
                 
           for (var data_key in jdata['data']) {
-            data_key_array.push(data_key);
+			if (data_key != "latest") data_key_array.push(data_key);
           }
 		  
-          for (var i=0;i<22;i++) {            
-            data_to_bar.push({"time":jdata['data'][data_key_array[data_key_array.length-22+i]]['updated_at'],
-                              "PSI":jdata['data'][data_key_array[data_key_array.length-22+i]]['psi'],
-                              "timestamp":data_key_array[data_key_array.length-22+i]});						
+		  var limit = (data_key_array.length < 23) ? data_key_array.length : 22;
+          for (var i=0;i<limit;i++) {            
+            data_to_bar.push({"time":jdata['data'][data_key_array[data_key_array.length-limit+i]]['updated_at'],
+                              "PSI":jdata['data'][data_key_array[data_key_array.length-limit+i]]['psi'],
+                              "timestamp":data_key_array[data_key_array.length-limit+i]});						
           }
           
           for(var j=0;j<data_to_bar.length;j++){
